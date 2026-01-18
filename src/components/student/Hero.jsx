@@ -13,7 +13,7 @@ const Hero = () => {
           Empower your future with the courses designed to  
           <span className="text-blue-600"> fit your choice.</span>
           <img src={assets.sketch} alt="sketch" 
-          className="md:block hidden absolute -buttom-7 right-0" />
+          className="md:block hidden absolute bottom-7 right-0" />
           </h1>
           
         <p className="md:block hidden text-gray-500 max-w-2xl mx-auto">
