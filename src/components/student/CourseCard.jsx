@@ -1,10 +1,30 @@
 import React from 'react'
+import { assets } from '../../assets/assets'
+import { AppContext } from '../../context/AppContext'
+import {Link} from 'react-router-dom'
 
-const CourseCard = () => {
+const CourseCard = ({course}) => {
+
+  const {currency} = useContext(AppContext)
+
   return (
-    <div>
-      <h1>Course Card</h1>
-    </div>
+    <Link to={'/course/' + course._id} onClick={()=> scrollTo(0,0)} className='border border-gray-500/30
+    pb-6 overflow-hidden rounded-lg'>
+      <img src={course.courseThumbnail} alt='' />
+      <div>
+        <h3>{course.courseTitle}</h3>
+        <p>{course.educator.name}</p>
+        <div>
+          <p>4.5</p>
+          <div>
+            {[...Array(5)].map((_, i)=>(<img key={1} src={assets.star} alt='' />))}
+          </div>
+          <p>22</p>
+        </div>
+        <p>{currency}{(course.coursePrice - course.discount * 
+          course.coursePrice / 100).toFixed(2)} </p>
+      </div>      
+    </Link>
   )
 }
 
