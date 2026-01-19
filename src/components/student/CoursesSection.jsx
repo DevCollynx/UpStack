@@ -1,9 +1,8 @@
 import React from "react";
-import CourseCard from './CourseCard'
+import CourseCard from "./CourseCard";
 
 const CoursesSection = () => {
-
-  const {allCourses} = useContext(AppContext)
+  const { allCourses } = useContext(AppContext);
 
   return (
     <div className="py-16 md:px-40 px-8">
@@ -12,12 +11,14 @@ const CoursesSection = () => {
       </h2>
       <p className="text-sm md:text-base text-gray-500 mt-3">
         Discover our top-rated courses across various categories. From coding
-        and design to business and wellness, our courses are crafted to deliver
-        results.
+        and design to <br /> business and wellness, our courses are crafted to
+        deliver results.
       </p>
 
-      <div>
-        {allCourses.slice(0,4).map((course, index)=> <CourseCard key= {index} course={course}/>)}
+      <div className="grid grid-cols-auto px-4 md:px-0 md:my-16 my-10 gap-4">
+        {allCourses.slice(0, 4).map((course, index) => (
+          <CourseCard key={index} course={course} />
+        ))}
       </div>
 
       <Link
