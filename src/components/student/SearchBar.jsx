@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const SearchBar = ({ data }) => {
   return (
     <div>
       <form
-        className="max-w-xl w-50 md:h-12 h-10 flex items-center 
+        className="max-w-xl w-full md:h-12 h-10 flex items-center 
       bg-white border border-gray-500/20 rounded"
       >
         <img
