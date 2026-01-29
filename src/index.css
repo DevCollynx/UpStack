@@ -6,13 +6,18 @@
   font-family: Outfit;
 }
 
+:root {
+  --section-height: 500px;
+  --gradient-stop: 500px;
+}
+
+.section {
+  height: var(--section-height);
+}
+
 @layer utilities {
   .grid-cols-auto {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  
-  .h-section-height {
-    height: 500px;
   }
 }
 
