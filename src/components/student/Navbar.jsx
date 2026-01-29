@@ -14,13 +14,13 @@ const Navbar = () => {
 
   return (
     <div
-      className={`flex items-center justify-between px-4 sm:px-10 md:px-14 lg:px-22 border-b border-gray-500 py-4 ${
+      className={`flex items-center justify-between px-15 sm:px-10 md:px-14 lg:px-22 border-b border-gray-500 py-4 ${
         isCourseListPage ? "bg-white" : "bg-cyan-100/70"
       }`}
     >
       <img
         onClick={() => navigate("/")}
-        src={assets.logo}
+        src={assets.upstack}
         alt="Logo"
         className="w-28 lg:w-32 cursor-pointer"
       />
