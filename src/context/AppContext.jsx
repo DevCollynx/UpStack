@@ -59,7 +59,6 @@ export const AppContextProvider = (props) => {
     return totalLectures;
   }
 
-
   useEffect(() => {
     fetchAllCourses();
   }, []);
