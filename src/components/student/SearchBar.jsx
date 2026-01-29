@@ -12,31 +12,32 @@ const SearchBar = ({ data }) => {
   };
 
   return (
-    <div>
-      <form
-        className="max-w-xl w-full md:h-12 h-10 flex items-center 
-      bg-white border border-gray-500/20 rounded"
+    <div className="flex gap-1 ml-10">
+      <form onSubmit={onSearchHandler}
+       id="myForm" className="max-w-xl w-full lg:w-110 md:h-12 h-10 flex items-center 
+      bg-white gap-5 border border-gray-500/20 rounded"
       >
         <img
           src={assets.search_icon}
           alt="search_icon"
           className="md:w-auto w-10 px-3"
         />
-        <input
+        <input 
           onChange={(e) => setInput(e.target.value)}
           value={input}
           type="text"
           placeholder="Search for courses"
-          className="w-full h-full outline-none text-gray-500/80"
+          className="w-full  h-full outline-none text-gray-500/80"
         />
-        <button
-          type="submit"
-          className="bg-blue-600 rounded text-white 
-        md:px-10 px-6 md:py-3 py-2 ml-50"
-        >
-          Search
-        </button>
       </form>
+      <button
+        type="Submit"
+        form="myForm"
+        className="bg-blue-600 rounded text-white 
+        md:px-10 px-6 md:py-3 py-2 mx-1"
+      >
+        Search
+      </button>
     </div>
   );
 };
