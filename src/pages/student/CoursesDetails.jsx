@@ -5,7 +5,7 @@ import Loading from "../../components/student/Loading";
 import { assets } from "../../assets/assets";
 import humanizeDuration from "humanize-duration";
 import Footer from "../../components/student/Footer";
-import Youtube from 'react-youtube'
+import YouTube from "react-youtube";
 
 const CoursesDetails = () => {
   const { id } = useParams();
@@ -33,14 +33,10 @@ const CoursesDetails = () => {
     fetchCourseData();
   }, [allCourses]);
 
-  const toggleSection = (index)=> {
-    setOpenSections((prev)=>(
-      {...prev,
-        [index]: !prev[index],
-      }
-    ))
-  }
-  
+  const toggleSection = (index) => {
+    setOpenSections((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
   return courseData ? (
     <>
       <div
@@ -138,9 +134,16 @@ const CoursesDetails = () => {
                             <p>{lecture.lectureTitle}</p>
                             <div className="flex gap-2">
                               {lecture.isPreviewFree && (
-                                <p onClick={()=> setPlayerData({
-                                  videoId: lecture.lectureUrl.split('/').pop()
-                                })} className="text-blue-500 cursor-pointer">
+                                <p
+                                  onClick={() =>
+                                    setPlayerData({
+                                      videoId: lecture.lectureUrl
+                                        .split("/")
+                                        .pop(),
+                                    })
+                                  }
+                                  className="text-blue-500 cursor-pointer"
+                                >
                                   Preview
                                 </p>
                               )}
@@ -176,21 +179,24 @@ const CoursesDetails = () => {
 
         {/* right column */}
         <div className="max-w-[424px] z-10 shadow-custom-card rounded-t md:rounded-none overflow-hidden bg-white min-w-[300px] sm:min-w-[420px]">
-          
-          {
-            playerData ?
-                <YouTube videoId={playerData.videoId} opts={{playerVars: {autoplay: 1}}} iframeClassName="w-full aspect-video" />
-                :  <img src={courseData.courseThumbnail} alt="" />
-          }
-         
+          {playerData ? (
+            <YouTube
+              videoId={playerData.videoId}
+              opts={{ playerVars: { autoplay: 1 } }}
+              iframeClassName="w-full aspect-video"
+            />
+          ) : (
+            <img src={courseData.courseThumbnail} alt="" />
+          )}
+
           <div className="p-5">
             <div className="flex items-center gap-2">
-                 <img
+              <img
                 className="w-3.5"
                 src={assets.time_left_clock_icon}
                 alt="time left clock icon"
               />
-              
+
               <p className="text-red-500">
                 <span className="font-medium">5 days</span> left at this price!
               </p>
@@ -234,7 +240,7 @@ const CoursesDetails = () => {
               </div>
             </div>
 
-            <button className="md:mt-6 mt-4 w-full py-3 rounded bg:blue-600 text-white font-medium">
+            <button className="md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium">
               {isAlreadyEnrolled ? "Already Enrolled" : "Enroll Now"}
             </button>
 
@@ -255,8 +261,9 @@ const CoursesDetails = () => {
       </div>
       <Footer />
     </>
-  ) : 
+  ) : (
     <Loading />
+  );
 };
 
 export default CoursesDetails;
