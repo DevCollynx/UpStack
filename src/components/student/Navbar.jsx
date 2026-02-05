@@ -20,7 +20,7 @@ const Navbar = () => {
     >
       <img
         onClick={() => navigate("/")}
-        src={assets.upstack_logo_dark}
+        src={assets.dark}
         alt="Logo"
         className="w-28 lg:w-32 cursor-pointer"
       />

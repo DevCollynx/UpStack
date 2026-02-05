@@ -9,7 +9,7 @@ const Footer = () => {
       justify-center gap-10 md:gap-32 py-10 border-b border-white/30"
       >
         <div className="flex flex-col md:items-start items-center w-full">
-          <img src={assets.upstack_logo_light} alt="logo" />
+          <img src={assets.light} alt="logo" />
           <p className="mt-6 text-center md:text-left text-sm text-white/80">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text.
